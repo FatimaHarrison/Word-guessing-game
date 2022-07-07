@@ -1,8 +1,8 @@
-var words = ["LAMBORGHINI", "DISNEY", "IPHONE", "MISSIPPI", "RUBY", "PINK",
-"ORLANDO", "DIGITAL", "TRAIN", "QUINCEANERA", "WASHINGTON", "CHRISTMAS",
-"TEAMMATE", "LIE", "SABADO", "MARCALES", "YAHOO", "WATERBALLONN",
-"JAVASCRIPT", "TICKET", "EGG", "INTERNET", "BROWSER", "WALMART", "GENERATION",
-"PATRICK", "GALAXY", "Z", "CAT", "KITTEN", "ICE", "BRACELET", "INCENTIVE", "HIGHSCHOOL", "WINDOWS", "JUNO"];
+var words = ["Lamborghini", "Disney", "Iphone", "Missippi", "Ruby", "Pink",
+"Orlando", "Digital", "Train", "Quinceanera", "Washington", "Christmas",
+"Teammate", "Lie", "Sabado", "Marcales", "Yahoo", "Watermelon",
+"Javascript", "Ticket", "Egg", "Internet", "Browser", "Walmart", "Generation",
+"Patrick", "Galaxy", "Z", "Cat", "Kitten", "Ice", "Bracelet", "Incentive", "Highschool", "Windows", "Juno"];
 
 var wins = 0, losses = 0, numGuesses = 17, count = 0;
 var wordIndex = 0;
@@ -33,34 +33,51 @@ document.onkeyup = function (event) {
                 numGuesses--;
                 wrongGuesses.push(input.toLowerCase());
                 document.getElementById("wrongLetters").innerHTML = "Wrong letters: " + wrongGuesses;
+                var temp = "star" + starNum;
+                document.getElementById(temp).style.visibility = "hidden";
+                starNum++;
+                alert("A star slowly grows colder until it is devoid of all light...")
             }
         }
     }
 
-    document.getElementById("word").innerHTML = displayMysteryWord();
-    console.log(input);
-    console.log(numGuesses);
     updateGame();
 }
 
 function updateGame(){
+    document.getElementById("word").innerHTML = displayMysteryWord();
+    setTimeout
+    if(numGuesses <= 0){
+        losses++
+        alert("Sorry game over!");
+        resetGame();
+    }
     if(!(document.getElementById("word").innerHTML.includes("_"))){
         if(numGuesses > 0){
             wins++;
-        }
-        else{
-            losses++;
+            alert("Congratulations you've won!");
+            resetGame();
         }
     }
+    document.getElementById("word").innerHTML = displayMysteryWord();
+    document.getElementById("Wins").innerHTML = "Wins: " + wins;
+    document.getElementById("Losses").innerHTML = "Losses: " + losses;
+    document.getElementById("guessesLeft").innerHTML = "Guesses Left: " + numGuesses;
 }
 
 function resetGame(){
-    numGuesses = 20;
-    wrongGuesses = [];
+    numGuesses = 10;
+    wrongGuesses = [], displayWord = [];
+    document.getElementById("wrongLetters").innerHTML = "Wrong letters: " + wrongGuesses;
     wordIndex = Math.floor(Math.random()*words.length);
     for(var i = 0; i < words[wordIndex].length; i++){
         displayWord.push(" _ ");
     }
+    for(var i = 1; i <= 10; i++){
+        var temp = "star" + i;
+        document.getElementById(temp).style.visibility = "visible";
+    }
+    starNum = 1;
 }
 
 function displayMysteryWord(){
