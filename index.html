@@ -19,207 +19,112 @@
     <h2id = "words"></h2>
     <div id="wrong-letters"></div>
     <div id="available-Guesses"></div>
-    <p> <bold> <marquee direction="left">............................... Channel your inner Riddler ......... You Got This! ............. Use your Byakugan or Sharingan .......... You can do it!Believe it!........... Use your chakra and ace this thing! ......................</marquee> </bold> </p>
+    <p> <bold> <marquee direction="left"> Welcome to my creation of the word guessing game whuch is OFF BRAND HANGMANNN Lmaoo!</marquee> </bold> </p>
     <script>
             //Create array of words
-                     var randomWords=["akali", "dog", "dragon","anima", "lamborghini"]
-                    
-                    console.log(splited1 = randomWords[0].split(""))
-                    console.log(underScore1 = "_ _ _ _ _ _")
-                    //document.write(replace = underScore1.replace(splited1))
-                    console.log(randomWords[0])
-                    console.log(replace)
-                    input = document.onkeyup
+                     var randomWords=["akali", "dog", "dragon","anima", "batman", "tom", "supercalifragilisticexpialidocious", "poppy", "miniature", "creepy", "risk", "glorious", "grin", "itachi", "naruto", "tenten", "seal", "future"];
+                     // var for chosen word => choosenWord = ""
+                     var choosenWord = ""
+                     // var for array which will store each letter individualy  => individualyLetters = []
+                     var individualyLetters = []
+                     // var for number of blank spaces => blankSpaces = ""
+                     var blankSpaces = ""
+                     // var for array containing correct guess letters and blank spaces for letters yet to be guessed => fillerLetters = []
+                     var fillerLetters = []
+                     // var for the wrong letters guess so far
+                     var wrongLetters=[];
+                        
+                     // var for wins
+                        var wins = 0; 
+                     // var for number of guesses left
+                        var availGuesses = 26;
+        // game logic
+            // 1. pick random word from randomWords and store it in choosenWord
+            choosenWord[Math.floor(Math.random() * randomWords.length)];
 
-                    if(input == "a"){
-                        "a _ a _ _".replace(replace)
-                    }
+            // 2. split the choosenWord by letter and store it in the array individualLetters hint: split()
+            individualLetters = document.getElementById("words").innerHTML = choosenWord.split(choosenWord);
 
-                    if(input == "k"){
-                        "a k a _ _".replace(replace)
-                    }
+            // 3. store the number of blank spaces needed for the chosen word by checking individualLetters array and store in blankSpaces
+            
+            // 4. loop over the amount define in blankSpaces and store a blank space "_" in fillerLetters
+            for(var i = 0; i < blankSpaces.length; i++){
+                fillerLetters = fillerLetters.replace(input, "_");
+            }
+            // 5. grab div with id of words and change the innerHTML to be equal to fillerLetters join together hint: joint()
+            document.getElementById("words").innerHTML = fillerLetters.join("");
 
-                    if(input == "l"){
-                        "a k a l _".replace(replace)
-                    }
-                    if(input == "i"){
-                        "a k a l i".replace(replace)
-                    }
+            // 6. grab div with id of wrong-letters  and change the innerHTML to be equal to wrongLetters
+            document.getElementById("wrong-letters").innerHTML = "Wrong Letters: " + wrongLetters;
 
+            // 7. grab div with id of available-Guesses  and change the innerHTML to be equal to availGuesses
+            document.getElementById("available-Guesses").innerHTML = "Available Guesses: " + availGuesses;
 
-                    
-                   console.log(splited2 = randomWords[1].split(""))
-                   console.log(splited2)
-                   console.log(underScore2 = "_ _ _")
-                    //document.write(replace2 = underScore2.replace(splited2))
-                    console.log(randomWords[1])
-                    console.log(replace2)
-                    input = document.onkeyup
+            // 8. create a function call checkLetter that has a parameter named letter 
+            function checkLetter (letter){
 
-                    if(input == "d"){
-                        "d _ _".replace(replace2)
-                    }
+                // - create var realLetter that is a boolean that will be set to false if the letter is not in the individualLetters and true if it is (default false) = (true or false)
+                var realLetter = "";
 
-                    if(input == "o"){
-                        "d o _".replace(replace2)
-                    }
+                // - loop over the amount define in blankSpaces
+                var i = 0; i < blankSpaces.length; i++
 
-                    if(input == "g"){
-                        "d o g".replace(replace2)
-                    }
+                //   - if letter is one of the letters inside individualLetters[i] then
+                if (letter == individualLetters[i]){
 
+                //    - store true in realLetter
+                realLetter = true;
 
+                // - close loop
+                }
+                // - if realLetter is true then
+                if (realLetter = true){
 
-                   console.log(splited3 = randomWords[2].split(""))
-                   console.log(splited3)
-                   console.log(underScore3 = "_ _ _ _ _ _")
-                    //document.write(replace3 = underScore3.replace(splited3))
-                    console.log(randomWords[2])
-                    console.log(replace3)
-                    input = document.onkeyup
+                //   - loop over the amount define in blankSpaces
+                    blankSpaces.length[i];
+                } 
+                //     - if letter is one of the letters inside individualLetters then
+                if (letter == individualLetters[i]){
 
-                    if(input == "d"){
-                        "d _ _ _ _ _ _ _".replace(replace3)
-                    }
+                //       - grab fillerLetters at index and assign it the vlue of letter hint: fillerLetters[i] = letter
+                fillerLetters[i] = letter;
 
-                    if(input == "r"){
-                        "d r _ _ _ _".replace(replace3)
-                    }
+                //     - end condition
+                }
+                // - else
+                else{
+                //   - add letter into wrongLetters=[] hint: push()
+                wrongLetters.push(letter);
+                
+                //   - subsatract one from availGuesses
+                availGuesses - 1;
+                // - end condition
+            }
+                // end function
+        }
+            // 9.  listen to an onkeyup event then
+            document.onkeyup = function (event) {
+                availGuesses--
 
-                    if(input == "a"){
-                        "d r a _ _ _".replace(replace3)
-                    }
+                // 10.  store letter input inside a var call input
+                var input = event.key.toLocaleLowerCase();
 
-                    if(input == "g"){
-                        "d r a g _ _".replace(replace3)
-                    }
+                // 11. call the  checkLetter function and pass in the input as an argument
+                checkLetter(input)
 
-                    if(input == "o"){
-                        "d r a g o _".replace(replace3)
-                    }
+                // 12. grab div with id of wrong-letters  and change the innerHTML to be equal to wrongLetters
+                document.getElementById("wrong-letters").innerHTML = "Wrong Letters: " + wrongLetters;
 
-                    if(input == "n"){
-                        "d r a g o n".replace(replace3)
-                    }
+                // 13. grab div with id of available-Guesses  and change the innerHTML to be equal to availGuesses
+                document.getElementById("available-Guesses").innerHTML = "Available Guesses: " + availGuesses;
 
-
-
-                   console.log(splited4 = randomWords[3].split(""))
-                   console.log(splited4)
-                   console.log(underScore4 = "_ _ _ _ _")
-                    //document.write(replace4 = underScore4.replace(splited4))
-                    console.log(randomWords[3])
-                    console.log(replace4)
-                    input = document.onkeyup
-
-                    if(input == "a"){
-                        "a _ _ _ a".replace(replace4)
-                    }
-
-                    if(input == "n"){
-                        "a n _ _ a".replace(replace4)
-                    }
-
-                    if(input == "i"){
-                        "a n i _ a".replace(replace4)
-                    }
-
-                    if(input == "m"){
-                        "a n i m a".replace(replace4)
-                    }
-
-
-
-                    console.log(splited5 = randomWords[4].split(""))
-                    console.log(splited5)
-                    console.log(underScore5 = "_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _")
-                    //document.write(replace5 = underScore5.replace(splited5))
-                    console.log(randomWords[4])
-                    console.log(replace5)
-                    input = document.onkeyup
-
-                    if(input == "s"){
-                        "s _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ s _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ s".replace(replace5)
-                        //supercalifragilisticexpialidocious
-                    }
-
-                    if(input == "u"){
-                        "s u _ _ _ _ _ _ _ _ _ _ _ _ _ _ s _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ u s".replace(replace5)
-                        //supercalifragilisticexpialidocious
-                    }
-
-                    if(input == "p"){
-                        "s u p _ _ _ _ _ _ _ _ _ _ _ _ _ s _ _ _ _ _ p _ _ _ _ _ _ _ _ _ u s".replace(replace5)
-                        //supercalifragilisticexpialidocious
-                    }
-
-                    if(input == "e"){
-                        "s u p e _ _ _ _ _ _ _ _ _ _ _ _ s _ _ _ e _ p _ _ _ _ _ _ _ _ _ u s".replace(replace5)
-                        //supercalifragilisticexpialidocious
-                    }
-
-                    if(input == "r"){
-                        "s u p e r _ _ _ _ _ r _ _ _ _ _ s _ _ _ e _ p _ _ _ _ _ _ _ _ _ u s".replace(replace5)
-                        //supercalifragilisticexpialidocious
-                    }
-
-                    if(input == "c"){
-                        "s u p e r c _ _ _ _ r _ _ _ _ _ s _ _ c e _ p _ _ _ _ _ _ c _ _ u s".replace(replace5)
-                        //supercalifragilisticexpialidocious
-                    }
-
-                    if(input == "a"){
-                        "s u p e r c a _ _ _ r a _ _ _ _ s _ _ c e _ p _ a _ _ _ _ c _ _ u s".replace(replace5)
-                        //supercalifragilisticexpialidocious
-                    }
-
-                    if(input == "l"){
-                        "s u p e r c a l _ _ r a _ _ l _ s _ _ c e _ p _ a l _ _ _ c _ _ u s".replace(replace5)
-                        //supercalifragilisticexpialidocious
-                    }
-
-                    if(input == "i"){
-                        "s u p e r c a l i _ r a _ i l i s _ i c e _ p i a l i _ _ c i _ u s".replace(replace5)
-                       //supercalifragilisticexpialidocious
-                    }
-
-                    if(input == "f"){
-                        "s u p e r c a l i f r a _ i l i s _ i c e _ p i a l i _ _ c i _ u s".replace(replace5)
-                        //supercalifragilisticexpialidocious
-                    }
-
-                    if(input == "f"){
-                        "s u p e r c a l i f r a _ i l i s _ i c e _ p i a l i _ _ c i _ u s".replace(replace5)
-                        //supercalifragilisticexpialidocious
-                    }
-
-                    if(input == "g"){
-                        "s u p e r c a l i f r a g i l i s _ i c e _ p i a l i _ _ c i _ u s".replace(replace5)
-                        //supercalifragilisticexpialidocious
-                    }
-
-                    if(input == "t"){
-                        "s u p e r c a l i f r a g i l i s t i c e _ p i a l i _ _ c i _ u s".replace(replace5)
-                        //supercalifragilisticexpialidocious
-                    }
-
-                    if(input == "d"){
-                        "s u p e r c a l i f r a g i l i s t i c e _ p i a l i d _ c i _ u s".replace(replace5)
-                       //supercalifragilisticexpialidocious
-                    }
-
-                    if(input == "x"){
-                        "s u p e r c a l i f r a g i l i s t i c e x p i a l i d _ c i _ u s".replace(replace5)
-                        //supercalifragilisticexpialidocious
-                    }
-
-                    if(input == "o"){
-                        "s u p e r c a l i f r a g i l i s t i c e x p i a l i d o c i o u s".replace(replace5)
-                        //supercalifragilisticexpialidocious
-                    }
-
-
-
+                // 14. grab div with id of words and change the innerHTML to be equal to fillerLetters join together hint: joint()
+                document.getElementById("words").innerHTML = fillerLetters.join("");
+                
+                // 15. end event listener
+                
+            }
+            // alert("End of game, so take your fingers off the keys! You have sucessfully gone through each of my words.");
+            // alert("Good Job! Your " + document.getElementById("score").innerHTML + ". You get an extra point just for playing! Refresh the page to start again!")
     </script>
 </body>
-</html>
