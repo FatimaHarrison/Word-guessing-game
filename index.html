@@ -3,13 +3,12 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Question Game</title>
-  <link rel="stylesheet href="style.css"></link>
+  <title>T or F</title>
 </head>
 
 <body>
 
-  <h1>True or False</h1>
+  <h1>True or False?</h1>
 
   <p id="score"></p>
   <p id="question"></p>
@@ -19,36 +18,38 @@
     // VARIABLES
     // ==========================================================================
 
-    // This is the array of questions.
+    // The array of questions for our quiz game.
     var questions = [
       { q: "Land is first created by lava.", a: "t" },
-      { q: "The Marine Corps birthday is Dec 10, 1875.", a: "f" },
-      { q: "An elephant weighs about 1,688 pounds.", a: "f" },
-      { q: "Tomatoes is a fruit.", a: "t" },
-      { q: "Micheal Lawerence was a singer.", a: "f" }
-      { q: "Tupac is orginally from NYC.", a: "t" },                                              
+      { q: "The Marine Corps birtday in Nov 10, 1775.", a: "t" },
+      { q: "A baby elephant weighs about 2.309 pounds.", a: "f" },
+      { q: "Chrylser was brought by Ford dealerships.", a: "f" },
+      { q: "Haiti was the secound country to gain thier independance.", a: "t" },
+      { q: "There were 9 power plant melt downs in the US history.", a: "f" },
+      { q: "Roaches can still live without their bodies being attached.", a: "t" },
+      { q: "Kia is orginally from South Korea .", a: "t" },
+      { q: "Kia is orginally from South Korea .", a: "t" },
+      { q: "Micheal Lawrence was a singer .", a: "f" },
+      { q: "Janet Jackson is a sibling of 9  .", a: "t" },
     ];
 
-    // This will start the game with 0.
-       var score = 0;
-    // This will hold the the present question.
-       var questionIndex = 0;
-       var reset
+    // We start the game with a score of 0.
+    var score = 0;
+    // Variable to hold the index of current question.
+    var questionIndex = 0;
 
-       
     // FUNCTIONS
     // ==============================================================================
 
-    // This is the function to render the questions.
-    
-     function renderQuestion() {
-      
-        if (questionIndex <= (questions.length - 1)) {
+    // Function to render questions.
+    function renderQuestion() {
+      // If there are still more questions, render the next one.
+      if (questionIndex <= (questions.length - 1)) {
         document.querySelector("#question").innerHTML = questions[questionIndex].q;
       }
       // If there aren't, render the end game screen.
       else {
-        document.querySelector("#question").innerHTML = "Game Over";
+        document.querySelector("#question").innerHTML = "Game Over!";
         document.querySelector("#score").innerHTML = "Final Score: " + score + " out of " + questions.length;
       }
     }
@@ -65,15 +66,14 @@
     // Calling functions to start the game.
     renderQuestion();
     updateScore();
-     
-     // This is to make the game function.
-     document.onkeyup = function(event) {
 
-      // This is to reture the page when there's nomore questions.
+    // When the user presses a key, it will run the following function...
+    document.onkeyup = function(event) {
+
+      // If there are no more questions, stop the function.
       if (questionIndex === questions.length) {
-        alert(This is the end of the game.)
         return;
-       }
+      }
 
       // Determine which key was pressed, make it lowercase, and set it to the userInput variable.
       var userInput = event.key.toLowerCase();
@@ -83,13 +83,13 @@
 
         // If they guess the correct answer, increase and update score, alert them they got it right.
         if (userInput === questions[questionIndex].a) {
-          alert("Correct");
+          alert("You are correct.");
           score++;
           updateScore();
         }
         // If wrong, alert them they are wrong.
         else {
-          alert("Sorry that was incorrect.")     
+          alert("Sorry wrong answer.");
         }
 
         // Increment the questionIndex variable and call the renderQuestion function.
@@ -105,4 +105,3 @@
 </body>
 
 </html>
-
