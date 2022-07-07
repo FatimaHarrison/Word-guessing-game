@@ -2,9 +2,18 @@ body{
     text-align: center;
     color: purple;
     vertical-align: middle;
-    background-image: url(..https://wallpaperaccess.com/full/487687.jpg);
+    background-image: url(../Assets/images/background.png);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 100% 100%;
     padding-top: 5%;
 }
+
+p{
+  font-style: 'Times New Roman'
+  font-size: 12px;
+}
+
+h1{
+    
+    
