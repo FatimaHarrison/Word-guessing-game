@@ -1,8 +1,8 @@
-var words = ["akali", "dog", "needle", "baseball", "partner", "manager",
-"absent", "digital", "transmission", "welcome", "context", "command",
-"contradiction", "dare", "owl", "preference", "respectable", "snatch",
-"advance", "organ", "direction", "spectrum", "surgeon", "wheel", "generation",
-"maximum", "adult", "art", "pierce", "kit", "tablet", "necklace", "incentive", "Supercalifragilisticexpialidocious"];
+var words = ["LAMBORGHINI", "DISNEY", "IPHONE", "MISSIPPI", "RUBY", "PINK",
+"ORLANDO", "DIGITAL", "TRAIN", "QUINCEANERA", "WASHINGTON", "CHRISTMAS",
+"TEAMMATE", "LIE", "SABADO", "MARCALES", "YAHOO", "WATERBALLONN",
+"JAVASCRIPT", "TICKET", "EGG", "INTERNET", "BROWSER", "WALMART", "GENERATION",
+"PATRICK", "GALAXY", "Z", "CAT", "KITTEN", "ICE", "BRACELET", "INCENTIVE", "HIGHSCHOOL", "WINDOWS", "JUNO"];
 
 var wins = 0, losses = 0, numGuesses = 20, count = 0;
 var wordIndex = 0;
@@ -26,12 +26,12 @@ document.onkeyup = function (event) {
             }
         }
         else{
-            if(document.getElementById("wrongLetters").innerHTML.includes(input.toLowerCase(),14)){
+            if(document.getElementById("wrongLetters").innerHTML.includes(input.toUPPERCase(),14)){
 
             }
             else{
                 numGuesses--;
-                wrongGuesses.push(input.toLowerCase());
+                wrongGuesses.push(input.toUPPERCase());
                 document.getElementById("wrongLetters").innerHTML = "Wrong letters: " + wrongGuesses;
             }
         }
