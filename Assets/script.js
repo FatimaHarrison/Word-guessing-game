@@ -21,17 +21,17 @@ document.onkeyup = function (event) {
         if(placeholder.includes(input)){
             duplicate = placeholder.match(regExp);
             for(var i = 0; i < duplicate.length; i++){
-                displayWord[placeholder.indexOf(input)] = input;
-                placeholder = placeholder.replace(input, " ");
+                displayWord[placeholder.indexOf(input.toUpperCase())] = input;
+                placeholder = placeholder.replace(input.toUpperCase(),"");
             }
         }
         else{
-            if(document.getElementById("wrongLetters").innerHTML.includes(input.toUPPERCase(),14)){
+            if(document.getElementById("wrongLetters").innerHTML.includes(input.toLowerCase(),14)){
 
             }
             else{
                 numGuesses--;
-                wrongGuesses.push(input.toUPPERCase());
+                wrongGuesses.push(input.toLowerCase());
                 document.getElementById("wrongLetters").innerHTML = "Wrong letters: " + wrongGuesses;
             }
         }
@@ -44,19 +44,30 @@ document.onkeyup = function (event) {
 }
 
 function updateGame(){
-    if(!(document.getElementById("word").innerHTML.includes("_"))){
-        if(numGuesses > 0){
+       (document.getElementById("word").innerHTML.includes("_")));
+       if(numGuesses > 0){
             wins++;
+            alert("Congratulation you've won!")
+            resetGame();
         }
-        else{
+           document.getElementById("word").innerHTML = displayMysteryWord();
+        if(numGuesses <=0){
             losses++;
+            alert("Game over!")
+            resetGame();
         }
     }
-}
+      document.getElementById("word").innerHTML = displayMysteryWord();
+      document.getElementById("Wins").innerHTML = "Wins: " + wins;
+      document.getElementById("Losses").innerHTML = "Losses: " + losses;
+      document.getElementById("guessesLeft").innerHTML = "Guesses Left: " + numGuesses;
+  }
+
 
 function resetGame(){
-    numGuesses = 20;
-    wrongGuesses = [];
+    numGuesses = 16;
+    wrongGuesses = [], displayWord=[];
+    document.getElementById("wrongLetters").innerHTML = "Wrong letters: " + wrongGuesses;
     wordIndex = Math.floor(Math.random()*words.length);
     for(var i = 0; i < words[wordIndex].length; i++){
         displayWord.push(" _ ");
