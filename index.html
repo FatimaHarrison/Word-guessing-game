@@ -1,108 +1,118 @@
 <!DOCTYPE html>
-<html lang="en-us">
-
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>T or F</title>
-  <link rel="stylesheet" type="text/css" href="styles.css" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>34</title>
+    <style>
+        body{
+            display:block;
+            margin-left:auto;
+            margin-right:auto;
+            text-align: center;
+            background-color: rgb(255, 213, 213);
+        }
+
+        .button {
+            background-color: blue;
+            color: black;
+            border: 2px solid lightblue;
+            padding: 16px 32px;
+            text-decoration: none;
+            font-size: 16px;
+            margin: 4px 2px;
+            transition-duration: 0.4s;
+            border-radius: 16px;
+        }
+
+        .button:hover {
+            background-color: lightblue;
+            color: rgb(0, 0, 0);
+        }
+
+        #tutorial {
+            line-height: 2;
+            width: 40%;
+            padding: 25px 0;
+            text-align: center;
+            background-color: blue;
+            margin-top: 5px;
+            margin-left:auto;
+            margin-right:auto;
+        }
+    </style>
 </head>
-
 <body>
+    <h1>Welcome to the true or false game</h1>
+    <h2>Notice:</h2>
+    <h3 id = "score">Score: 0</h3>
+    <button id="tutorialButton" class="button" onclick="displayTutorial()">Hide Tutorial</button>
+    <div id="tutorial">
+        In order to answer the question,
+        <br>Press either t for true or f for false
+        <br>Some answers may be very opinionated and biased
+    </div>
+    <hr style="width:50%;height:3px;border-width:0;color:gray;background-color:gray">
+    <h1 id = "question">e</h1>
+    <script>
+    var count = 0, score = 0; 
 
-  <h1>True or False?</h1>
-
-  <p id="score"></p>
-  <p id="question"></p>
-
-  <script>
-
-    // VARIABLES
-    // ==========================================================================
-
-    // The array of questions for our quiz game.
-    var questions = [
-      { q: "Land is first created by lava.", a: "t" },
-      { q: "The Marine Corps birtday in Nov 10, 1775.", a: "t" },
-      { q: "A baby elephant weighs about 2.309 pounds.", a: "f" },
-      { q: "Chrylser was brought by Ford dealerships.", a: "f" },
-      { q: "Haiti was the secound country to gain thier independance.", a: "t" },
-      { q: "There were 9 power plant melt downs in the US history.", a: "f" },
-      { q: "Roaches can still live without their bodies being attached.", a: "t" },
-      { q: "Kia is orginally from South Korea .", a: "t" },
-      { q: "Kia is orginally from South Korea .", a: "t" },
-      { q: "Micheal Lawrence was a singer .", a: "f" },
-      { q: "Janet Jackson is a sibling of 9  .", a: "t" },
+    var array = [
+        { q: "A baby elephant weighs about 2,055 pounds", a: "f" },
+        { q: "Micheal Lawrence was a screenwritter", a: "t" },
+        { q: "The Marine Corps birthday is Nov 10th, 1775", a: "t" },
+        { q: "Chrispother Columbus discovered Egypt", a: "f" },
+        { q: "Canada was the 2nd country to gain their indepence", a: "f" },
+        { q: "Gelato ice cream is the same as regular ice cream", a: "f" },
+        { q: "Moana is the 56th Disney movie", a: "t" },
+        { q: "Everybody hates Chris?", a: "f" },
+        { q: "Peter Pan is the 14th Disney moive", a: "t" },
+        { q: "Call of duty is a fun game", a: "t" },
+        { q: "Ruby is a part of coding", a: "t" },
+        { q: "Janet Jackson is a silbing out of 5", a: "f" },
+        { q: "We all have our ups and downs", a: "t" }
     ];
 
-    // We start the game with a score of 0.
-    var score = 0;
-    // Variable to hold the index of current question.
-    var questionIndex = 0;
+    document.getElementById("question").innerHTML = array[count].q;
 
-    // FUNCTIONS
-    // ==============================================================================
-
-    // Function to render questions.
-    function renderQuestion() {
-      // If there are still more questions, render the next one.
-      if (questionIndex <= (questions.length - 1)) {
-        document.querySelector("#question").innerHTML = questions[questionIndex].q;
-      }
-      // If there aren't, render the end game screen.
-      else {
-        document.querySelector("#question").innerHTML = "Game Over!";
-        document.querySelector("#score").innerHTML = "Final Score: " + score + " out of " + questions.length;
-      }
+    
+    document.onkeyup   = function (event) {
+        var input = event.key;
+        if(input == "t" || input == "f"){
+            if (array[count].a == input) {
+                alert("Correct");
+                score++;
+                document.getElementById("score").innerHTML = "Total score: " + score;
+            }
+            else{
+                alert("Incorrect answer");
+            }
+            count++;
+            if(count < 10){
+                document.getElementById("question").innerHTML = array[count].q;
+            }
+            else{
+                alert("You have reached to the end");
+            }
+        }
+        else{
+            alert("Please type either t or f");
+        }
     }
 
-    // Function that updates the score...
-    function updateScore() {
-      document.querySelector("#score").innerHTML = "Score: " + score;
+
+    function displayTutorial() {
+            var x = document.getElementById("tutorial");
+            var y = document.getElementById("tutorialButton");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+                y.textContent = "Remove paragraph";
+            } else {
+                x.style.display = "none";
+                y.textContent = "Show Tutorial";
+            }
     }
-
-
-    // MAIN PROCESS
-    // ==============================================================================
-
-    // Calling functions to start the game.
-    renderQuestion();
-    updateScore();
-
-    // When the user presses a key, it will run the following function...
-    document.onkeyup = function(event) {
-
-      // If there are no more questions, stop the function.
-      if (questionIndex === questions.length) {
-        return;
-      }
-
-      // Determine which key was pressed, make it lowercase, and set it to the userInput variable.
-      var userInput = event.key.toLowerCase();
-
-      // Only run this code if "t" or "f" were pressed.
-      if (userInput === "t" || userInput === "f") {
-
-        // If they guess the correct answer, increase and update score, alert them they got it right.
-        if (userInput === questions[questionIndex].a) {
-          alert("You are correct.");
-          score++;
-          updateScore();
-        }
-        // If wrong, alert them they are wrong.
-        else {
-          alert("Sorry wrong answer.");
-        }
-
-        // Increment the questionIndex variable and call the renderQuestion function.
-        questionIndex++;
-        renderQuestion();
-
-      }
-
-    };
-
-  </script>
-
+    </script>
 </body>
-
 </html>
