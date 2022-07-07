@@ -63,19 +63,26 @@
             font-size: 18px;
             font-style: italic;
         }
+        
+        h4{
+            font-family: 'arial';
+            color: oldlace;
+            font-size: 16px;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
     <h1>Welcome to the true or false game</h1>
     <h2 id = "score">Current score: 0</h2>
     <h3>Notice:</h3>
+    <button id="instructionsButton" class="button" onclick="Reveal instructions()>Put away instructions</button
     <div id="Instructions">
         To play the game 
-        <button id="instructionsButton" class="button" onclick="Reveal instructions()>Put away instructions</button
-        <br>Press the letters t or f to respond to the comment.
+        <br>Press the letters t or f to respond.
     </div>
     <hr style="width:50%;height:3px;border-width:0;color:gray;background-color:gray">
-    <h1 id = "question">e</h1>
+    <h4 id = "question">e</h4>
     <script>
     var count = 0, score = 0; 
 
@@ -109,18 +116,18 @@
             else{
                 alert("Incorrect");
                 score--;
-                document.getElementById("score").innerHTML = "Current score: " - score;                 
+                        
             }
             count++;
             if(count < 10){
                 document.getElementById("question").innerHTML = array[count].q;
             }
             else{
-                alert("You have reached to the end");
+                alert("You've reached to the end");
             }
         }
         else{
-            alert("Please type either t or f");
+            alert("Remember only the keys t or f");
         }
     }
 
