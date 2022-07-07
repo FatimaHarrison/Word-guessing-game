@@ -4,11 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <title>Question Game</title>
+  <link rel="stylesheet href="style.css"></link>
 </head>
 
 <body>
 
-  <h1>Question Game!</h1>
+  <h1>True or False</h1>
 
   <p id="score"></p>
   <p id="question"></p>
@@ -18,32 +19,35 @@
     // VARIABLES
     // ==========================================================================
 
-    // The array of questions for our quiz game.
+    // This is the array of questions.
     var questions = [
-      { q: "The sky is blue.", a: "t" },
-      { q: "There are 365 days in a year.", a: "t" },
-      { q: "There are 42 ounces in a pound.", a: "f" },
-      { q: "The Declaration of Independence was created in 1745.", a: "f" },
-      { q: "Bananas are vegetables.", a: "f" }
+      { q: "Land is first created by lava.", a: "t" },
+      { q: "The Marine Corps birthday is Dec 10, 1875.", a: "f" },
+      { q: "An elephant weighs about 1,688 pounds.", a: "f" },
+      { q: "Tomatoes is a fruit.", a: "t" },
+      { q: "Micheal Lawerence was a singer.", a: "f" }
+      { q: "Tupac is orginally from NYC.", a: "t" },                                              
     ];
 
-    // We start the game with a score of 0.
-    var score = 0;
-    // Variable to hold the index of current question.
-    var questionIndex = 0;
+    // This will start the game with 0.
+       var score = 0;
+    // This will hold the the present question.
+       var questionIndex = 0;
 
+       
     // FUNCTIONS
     // ==============================================================================
 
-    // Function to render questions.
-    function renderQuestion() {
-      // If there are still more questions, render the next one.
-      if (questionIndex <= (questions.length - 1)) {
+    // This is the function to render the questions.
+    
+     function renderQuestion() {
+      
+        if (questionIndex <= (questions.length - 1)) {
         document.querySelector("#question").innerHTML = questions[questionIndex].q;
       }
       // If there aren't, render the end game screen.
       else {
-        document.querySelector("#question").innerHTML = "Game Over!";
+        document.querySelector("#question").innerHTML = "Game Over";
         document.querySelector("#score").innerHTML = "Final Score: " + score + " out of " + questions.length;
       }
     }
@@ -60,12 +64,15 @@
     // Calling functions to start the game.
     renderQuestion();
     updateScore();
+     
+     // This is to make the game function.
+     document.onkeyup = function(event) {
 
-    // When the user presses a key, it will run the following function...
-    document.onkeyup = function(event) {
-
-      // If there are no more questions, stop the function.
+      // This is to reture the page when there's nomore questions.
       if (questionIndex === questions.length) {
+        alert(This is the end of the game.)
+        confirm                                                    
+        
         return;
       }
 
@@ -77,13 +84,14 @@
 
         // If they guess the correct answer, increase and update score, alert them they got it right.
         if (userInput === questions[questionIndex].a) {
-          alert("Correct!");
+          alert("Correct");
           score++;
           updateScore();
         }
         // If wrong, alert them they are wrong.
         else {
-          alert("Wrong!");
+          alert("Incorrect");
+              document          
         }
 
         // Increment the questionIndex variable and call the renderQuestion function.
