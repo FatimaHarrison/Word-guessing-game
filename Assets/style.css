@@ -1,1 +1,8 @@
-
+ body{
+        background-color: lightgreen;
+        color: white;
+        size: 100px;
+    }
+    
+    marquee{
+        size: 200px;
