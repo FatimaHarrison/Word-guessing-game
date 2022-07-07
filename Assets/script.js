@@ -34,7 +34,6 @@ document.onkeyup = function (event) {
                 wrongGuesses.push(input.toLowerCase());
                 document.getElementById("wrongLetters").innerHTML = "Wrong letters: " + wrongGuesses;
                 var temp = "star" + starNum;
-                document.getElementById(temp).style.visibility = "hidden";
                 starNum++;
                 alert("A star slowly grows colder until it is devoid of all light...")
             }
