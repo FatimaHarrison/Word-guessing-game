@@ -4,7 +4,7 @@ var words = ["LAMBORGHINI", "DISNEY", "IPHONE", "MISSIPPI", "RUBY", "PINK",
 "JAVASCRIPT", "TICKET", "EGG", "INTERNET", "BROWSER", "WALMART", "GENERATION",
 "PATRICK", "GALAXY", "Z", "CAT", "KITTEN", "ICE", "BRACELET", "INCENTIVE", "HIGHSCHOOL", "WINDOWS", "JUNO"];
 
-var wins = 0, losses = 0, numGuesses = 20, count = 0;
+var wins = 0, losses = 0, numGuesses = 17, count = 0;
 var wordIndex = 0;
 var displayWord = [], wrongGuesses = [];
 var duplicate;
@@ -17,12 +17,12 @@ document.onkeyup = function (event) {
     var input = event.key;
     var regExp = new RegExp(input, "gi");
     var placeholder = words[wordIndex];
-    if(placeholder.search(/[a-z]|[A-Z]/) != -1){
+      if(placeholder.search(/[a-z]|[A-Z]/) != -1){
         if(placeholder.includes(input)){
             duplicate = placeholder.match(regExp);
             for(var i = 0; i < duplicate.length; i++){
-                displayWord[placeholder.indexOf(input.toUpperCase())] = input;
-                placeholder = placeholder.replace(input.toUpperCase(),"");
+                displayWord[placeholder.indexOf(input)] = input;
+                placeholder = placeholder.replace(input, " ");
             }
         }
         else{
@@ -65,7 +65,7 @@ function updateGame(){
 
 
 function resetGame(){
-    numGuesses = 16;
+    numGuesses = 17;
     wrongGuesses = [], displayWord=[];
     document.getElementById("wrongLetters").innerHTML = "Wrong letters: " + wrongGuesses;
     wordIndex = Math.floor(Math.random()*words.length);
