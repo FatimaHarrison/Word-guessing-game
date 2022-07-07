@@ -33,6 +33,7 @@
        var score = 0;
     // This will hold the the present question.
        var questionIndex = 0;
+       var reset
 
        
     // FUNCTIONS
@@ -71,10 +72,10 @@
       // This is to reture the page when there's nomore questions.
       if (questionIndex === questions.length) {
         alert(This is the end of the game.)
-        confirm                                                    
-        
-        return;
-      }
+        var reset = confirm("Would you like to play again?");
+       {else
+          return;
+       }
 
       // Determine which key was pressed, make it lowercase, and set it to the userInput variable.
       var userInput = event.key.toLowerCase();
@@ -90,8 +91,9 @@
         }
         // If wrong, alert them they are wrong.
         else {
-          alert("Incorrect");
-              document          
+          alert("Incorrect" + q: "The Marine Corps birthday is Dec 10, 1875.", a: "f" + .. ); 
+          alert("Incorrect" + q: "An elephant weighs about 1,688 pounds.", a: "f" + .. );
+          alert("Incorrect" + q: "Micheal Lawerence was a singer.", a: "f" + .. );          
         }
 
         // Increment the questionIndex variable and call the renderQuestion function.
