@@ -1,21 +1,46 @@
 body{
-  background-color: black;
-  margin: auto;
-  align-text: center;
+    text-align: center;
+    color: aliceblue;
+    vertical-align: middle;
+    background-image: url(../images/stars_background.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    padding-top: 5%;
 }
 
-h1{
-  color: lightblue;
-  font-family: 'Times New Roman';
-  font-style: italic;
-  font-size: 23px;
-  font-weight: 12px;
+img{
+    width: 100px;
+    height: 100px;
 }
 
-q{
-  color: lightblue;
-  font-family: 'sans sherif';
-  font-size: 19px;
-  font-weight: 12px;
+#star1{
+    visibility: "visible";
 }
-
+#star2 {
+    visibility: "visible";
+}
+#star3 {
+    visibility: "visible";
+}
+#star4 {
+    visibility: "visible";
+}
+#star5 {
+    visibility: "visible";
+}
+#star6 {
+    visibility: "visible";
+}
+#star7 {
+    visibility: "visible";
+}
+#star8 {
+    visibility: "visible";
+}
+#star9 {
+    visibility: "visible";
+}
+#star10 {
+    visibility: "visible";
+}
