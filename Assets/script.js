@@ -35,7 +35,7 @@ document.onkeyup = function (event) {
                 document.getElementById("wrongLetters").innerHTML = "Wrong letters: " + wrongGuesses;
                 var temp = "star" + starNum;
                 starNum++;
-                alert("A star slowly grows colder until it is devoid of all light...")
+                alert("This key is already use please choose another.")
             }
         }
     }
