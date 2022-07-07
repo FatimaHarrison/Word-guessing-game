@@ -1,72 +1,224 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HangMan</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
+<html lang="en-us">
+ <title> WGG</title>
+<style>
+    body{
+        background-color: lightgreen;
+        color: white;
+        size: 100px;
+    }
+    iframe{
+         margin-left: 70%;
+    }
+    marquee{
+        size: 200px;
+    }
+</style>
 <body>
-    <header>
-        <h1>Welcome to My HangMan game!</h1>
-        <p>press any key to begin</p>
-    </header>
-
-    <div id="words">
-        <p id="letters">aaaaaah</p>
-    </div>
-
+    <h1> Off brand hangman </h1>
+    <h2id = "words"></h2>
+    <div id="wrong-letters"></div>
+    <div id="available-Guesses"></div>
+    <p> <bold> <marquee direction="left">............................... Channel your inner Riddler ......... You Got This! ............. Use your Byakugan or Sharingan .......... You can do it!Believe it!........... Use your chakra and ace this thing! ......................</marquee> </bold> </p>
     <script>
+            //Create array of words
+                     var randomWords=["akali", "dog", "dragon","anima", "lamborghini"]
+                    
+                    console.log(splited1 = randomWords[0].split(""))
+                    console.log(underScore1 = "_ _ _ _ _ _")
+                    //document.write(replace = underScore1.replace(splited1))
+                    console.log(randomWords[0])
+                    console.log(replace)
+                    input = document.onkeyup
 
-        var Words = [
+                    if(input == "a"){
+                        "a _ a _ _".replace(replace)
+                    }
 
-        "word",
-        "smord",
-        "dord",
-        "cord",
-        "tord",
-        "nord",
+                    if(input == "k"){
+                        "a k a _ _".replace(replace)
+                    }
 
-        ]
-
-        var currentWordIndex = 0;
-        var guesses = 0;
-        var guessedLetters = [];
-        var wins = 0;
-        var losses = 0;
-        var wordtext = document.getElementById("letters");
+                    if(input == "l"){
+                        "a k a l _".replace(replace)
+                    }
+                    if(input == "i"){
+                        "a k a l i".replace(replace)
+                    }
 
 
-        var randomwordchoice = Words[Math.floor(Math.random() * Words.length)];
+                    
+                   console.log(splited2 = randomWords[1].split(""))
+                   console.log(splited2)
+                   console.log(underScore2 = "_ _ _")
+                    //document.write(replace2 = underScore2.replace(splited2))
+                    console.log(randomWords[1])
+                    console.log(replace2)
+                    input = document.onkeyup
 
-        var placeholders = []
+                    if(input == "d"){
+                        "d _ _".replace(replace2)
+                    }
 
-        for (let i = 0; i < randomwordchoice.length; i++) {
-            var wordlength = randomwordchoice[i];
-            placeholders.push("_ ")
-            console.log(placeholders)
-            if (i < randomwordchoice.length) {
-                wordtext.textContent = placeholders
-            }
-        }
+                    if(input == "o"){
+                        "d o _".replace(replace2)
+                    }
 
-        (randomwordchoice.length)
+                    if(input == "g"){
+                        "d o g".replace(replace2)
+                    }
 
-        document.onkeyup = function(event) {
-            var keyPressed = event.key
 
-            alert(keyPressed)
-        }
 
-        
+                   console.log(splited3 = randomWords[2].split(""))
+                   console.log(splited3)
+                   console.log(underScore3 = "_ _ _ _ _ _")
+                    //document.write(replace3 = underScore3.replace(splited3))
+                    console.log(randomWords[2])
+                    console.log(replace3)
+                    input = document.onkeyup
 
-        function goToNextWord() {
-            currentWordIndex++;
-            guesses = 0;
-            guessedLetters = [];
-            updateDisplay();
-        }
+                    if(input == "d"){
+                        "d _ _ _ _ _ _ _".replace(replace3)
+                    }
+
+                    if(input == "r"){
+                        "d r _ _ _ _".replace(replace3)
+                    }
+
+                    if(input == "a"){
+                        "d r a _ _ _".replace(replace3)
+                    }
+
+                    if(input == "g"){
+                        "d r a g _ _".replace(replace3)
+                    }
+
+                    if(input == "o"){
+                        "d r a g o _".replace(replace3)
+                    }
+
+                    if(input == "n"){
+                        "d r a g o n".replace(replace3)
+                    }
+
+
+
+                   console.log(splited4 = randomWords[3].split(""))
+                   console.log(splited4)
+                   console.log(underScore4 = "_ _ _ _ _")
+                    //document.write(replace4 = underScore4.replace(splited4))
+                    console.log(randomWords[3])
+                    console.log(replace4)
+                    input = document.onkeyup
+
+                    if(input == "a"){
+                        "a _ _ _ a".replace(replace4)
+                    }
+
+                    if(input == "n"){
+                        "a n _ _ a".replace(replace4)
+                    }
+
+                    if(input == "i"){
+                        "a n i _ a".replace(replace4)
+                    }
+
+                    if(input == "m"){
+                        "a n i m a".replace(replace4)
+                    }
+
+
+
+                    console.log(splited5 = randomWords[4].split(""))
+                    console.log(splited5)
+                    console.log(underScore5 = "_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _")
+                    //document.write(replace5 = underScore5.replace(splited5))
+                    console.log(randomWords[4])
+                    console.log(replace5)
+                    input = document.onkeyup
+
+                    if(input == "s"){
+                        "s _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ s _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ s".replace(replace5)
+                        //supercalifragilisticexpialidocious
+                    }
+
+                    if(input == "u"){
+                        "s u _ _ _ _ _ _ _ _ _ _ _ _ _ _ s _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ u s".replace(replace5)
+                        //supercalifragilisticexpialidocious
+                    }
+
+                    if(input == "p"){
+                        "s u p _ _ _ _ _ _ _ _ _ _ _ _ _ s _ _ _ _ _ p _ _ _ _ _ _ _ _ _ u s".replace(replace5)
+                        //supercalifragilisticexpialidocious
+                    }
+
+                    if(input == "e"){
+                        "s u p e _ _ _ _ _ _ _ _ _ _ _ _ s _ _ _ e _ p _ _ _ _ _ _ _ _ _ u s".replace(replace5)
+                        //supercalifragilisticexpialidocious
+                    }
+
+                    if(input == "r"){
+                        "s u p e r _ _ _ _ _ r _ _ _ _ _ s _ _ _ e _ p _ _ _ _ _ _ _ _ _ u s".replace(replace5)
+                        //supercalifragilisticexpialidocious
+                    }
+
+                    if(input == "c"){
+                        "s u p e r c _ _ _ _ r _ _ _ _ _ s _ _ c e _ p _ _ _ _ _ _ c _ _ u s".replace(replace5)
+                        //supercalifragilisticexpialidocious
+                    }
+
+                    if(input == "a"){
+                        "s u p e r c a _ _ _ r a _ _ _ _ s _ _ c e _ p _ a _ _ _ _ c _ _ u s".replace(replace5)
+                        //supercalifragilisticexpialidocious
+                    }
+
+                    if(input == "l"){
+                        "s u p e r c a l _ _ r a _ _ l _ s _ _ c e _ p _ a l _ _ _ c _ _ u s".replace(replace5)
+                        //supercalifragilisticexpialidocious
+                    }
+
+                    if(input == "i"){
+                        "s u p e r c a l i _ r a _ i l i s _ i c e _ p i a l i _ _ c i _ u s".replace(replace5)
+                       //supercalifragilisticexpialidocious
+                    }
+
+                    if(input == "f"){
+                        "s u p e r c a l i f r a _ i l i s _ i c e _ p i a l i _ _ c i _ u s".replace(replace5)
+                        //supercalifragilisticexpialidocious
+                    }
+
+                    if(input == "f"){
+                        "s u p e r c a l i f r a _ i l i s _ i c e _ p i a l i _ _ c i _ u s".replace(replace5)
+                        //supercalifragilisticexpialidocious
+                    }
+
+                    if(input == "g"){
+                        "s u p e r c a l i f r a g i l i s _ i c e _ p i a l i _ _ c i _ u s".replace(replace5)
+                        //supercalifragilisticexpialidocious
+                    }
+
+                    if(input == "t"){
+                        "s u p e r c a l i f r a g i l i s t i c e _ p i a l i _ _ c i _ u s".replace(replace5)
+                        //supercalifragilisticexpialidocious
+                    }
+
+                    if(input == "d"){
+                        "s u p e r c a l i f r a g i l i s t i c e _ p i a l i d _ c i _ u s".replace(replace5)
+                       //supercalifragilisticexpialidocious
+                    }
+
+                    if(input == "x"){
+                        "s u p e r c a l i f r a g i l i s t i c e x p i a l i d _ c i _ u s".replace(replace5)
+                        //supercalifragilisticexpialidocious
+                    }
+
+                    if(input == "o"){
+                        "s u p e r c a l i f r a g i l i s t i c e x p i a l i d o c i o u s".replace(replace5)
+                        //supercalifragilisticexpialidocious
+                    }
+
+
 
     </script>
 </body>
