@@ -11,13 +11,14 @@
             margin-left:auto;
             margin-right:auto;
             text-align: center;
-            background-color: rgb(255, 213, 213);
+            background-color:black;
+            color: oldlace;
         }
 
         .button {
-            background-color: blue;
+            background-color:lightblue;
             color: black;
-            border: 2px solid lightblue;
+            border: 2px solid black;
             padding: 16px 32px;
             text-decoration: none;
             font-size: 16px;
@@ -36,22 +37,21 @@
             width: 40%;
             padding: 25px 0;
             text-align: center;
-            background-color: blue;
             margin-top: 5px;
             margin-left:auto;
             margin-right:auto;
+            color: oldlace;
         }
     </style>
 </head>
 <body>
     <h1>Welcome to the true or false game</h1>
-    <h2>Notice:</h2>
-    <h3 id = "score">Score: 0</h3>
-    <button id="tutorialButton" class="button" onclick="displayTutorial()">Hide Tutorial</button>
-    <div id="tutorial">
-        In order to answer the question,
-        <br>Press either t for true or f for false
-        <br>Some answers may be very opinionated and biased
+    <h2 id = "score">Current score: 0</h2>
+    <h3>Notice:</h3>
+    <div id="Instructions">
+        To play the game 
+        <br>Press the letters t or f to respond to the comment.
+        <button id="instructionsButton" class="button" onclick="displayTutorial()>Put away instructions</button>
     </div>
     <hr style="width:50%;height:3px;border-width:0;color:gray;background-color:gray">
     <h1 id = "question">e</h1>
@@ -59,19 +59,19 @@
     var count = 0, score = 0; 
 
     var array = [
-        { q: "A baby elephant weighs about 2,055 pounds", a: "f" },
-        { q: "Micheal Lawrence was a screenwritter", a: "t" },
-        { q: "The Marine Corps birthday is Nov 10th, 1775", a: "t" },
-        { q: "Chrispother Columbus discovered Egypt", a: "f" },
-        { q: "Canada was the 2nd country to gain their indepence", a: "f" },
-        { q: "Gelato ice cream is the same as regular ice cream", a: "f" },
-        { q: "Moana is the 56th Disney movie", a: "t" },
-        { q: "Everybody hates Chris?", a: "f" },
-        { q: "Peter Pan is the 14th Disney moive", a: "t" },
-        { q: "Call of duty is a fun game", a: "t" },
-        { q: "Ruby is a part of coding", a: "t" },
-        { q: "Janet Jackson is a silbing out of 5", a: "f" },
-        { q: "We all have our ups and downs", a: "t" }
+        { q: "A baby elephant weighs about 2,055 pounds.", a: "f" },
+        { q: "Micheal Lawrence was a screenwritter.", a: "t" },
+        { q: "The Marine Corps birthday is Nov 10th, 1775.", a: "t" },
+        { q: "Chrispother Columbus discovered Egypt.", a: "f" },
+        { q: "Canada was the 2nd country to gain their indepence.", a: "f" },
+        { q: "Gelato ice cream is the same as regular ice cream.", a: "f" },
+        { q: "Moana is the 56th Disney movie.", a: "t" },
+        { q: "Everybody hates Chris.", a: "f" },
+        { q: "Peter Pan is the 14th Disney moive.", a: "t" },
+        { q: "Call of duty is a fun game.", a: "t" },
+        { q: "Ruby is a part of coding.", a: "t" },
+        { q: "Janet Jackson is a silbing out of 5.", a: "f" },
+        { q: "We all have our ups and downs.", a: "t" }
     ];
 
     document.getElementById("question").innerHTML = array[count].q;
@@ -83,10 +83,10 @@
             if (array[count].a == input) {
                 alert("Correct");
                 score++;
-                document.getElementById("score").innerHTML = "Total score: " + score;
+                document.getElementById("score").innerHTML = "Current score: " + score;
             }
             else{
-                alert("Incorrect answer");
+                alert("Incorrect");
             }
             count++;
             if(count < 10){
@@ -107,10 +107,10 @@
             var y = document.getElementById("tutorialButton");
             if (x.style.display === "none") {
                 x.style.display = "block";
-                y.textContent = "Remove paragraph";
+                y.textContent = "Put away instructions";
             } else {
                 x.style.display = "none";
-                y.textContent = "Show Tutorial";
+                y.textContent = "Reveal instructions";
             }
     }
     </script>
