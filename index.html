@@ -19,110 +19,48 @@
     <div id="available-Guesses"></div>
     <p> <bold> <marquee direction="left"> Welcome to my creation of the word guessing game which is "off brand hangman" Lmaoo!</marquee> </bold> </p>
     <script>
-            //Create array of words
-                     var randomWords=["akali", "dog", "dragon","anima", "batman", "tom", "supercalifragilisticexpialidocious", "poppy", "miniature", "creepy", "risk", "glorious", "grin", "itachi", "naruto", "tenten", "seal", "future"];
-                     // var for chosen word => choosenWord = ""
-                     var choosenWord = ""
-                     // var for array which will store each letter individualy  => individualyLetters = []
-                     var individualyLetters = []
-                     // var for number of blank spaces => blankSpaces = ""
-                     var blankSpaces = ""
-                     // var for array containing correct guess letters and blank spaces for letters yet to be guessed => fillerLetters = []
-                     var fillerLetters = []
-                     // var for the wrong letters guess so far
-                     var wrongLetters=[];
-                        
-                     // var for wins
-                        var wins = 0; 
-                     // var for number of guesses left
-                        var availGuesses = 26;
-        // game logic
-            // 1. pick random word from randomWords and store it in choosenWord
-            choosenWord[Math.floor(Math.random() * randomWords.length)];
+    <div class="container">
+    
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <p>Guess the word :).</p>
+                </div>
+            </div>
 
-            // 2. split the choosenWord by letter and store it in the array individualLetters hint: split()
-            individualLetters = document.getElementById("words").innerHTML = choosenWord.split(choosenWord);
+            <div class="row">
+        
+                <div class="col">
+                    <h1> Press any key to begin! </h1>
+                </div>
+        
+            </div>
 
-            // 3. store the number of blank spaces needed for the chosen word by checking individualLetters array and store in blankSpaces
+            <div class = "row">
+                <div class = "col">
+                    <h2 id=word></h2>
+                </div>
+            </div>
+
+            <div class = "row">
+                <div class = "col">
+                    <h3 id="wrongLetters"> Wrong letters: </h3>
+                </div>
+            </div>
+
+            <div class="row">
+                <div id="guessesLeft" class="col">
+                    Guesses Left: 20
+                </div>
+                <div id="Wins" class="col">
+                    Wins: 0
+                </div>
+                <div id="Losses" class="col">
+                    Losses: 0
+                </div>
+            </div>
             
-            // 4. loop over the amount define in blankSpaces and store a blank space "_" in fillerLetters
-            for(var i = 0; i < blankSpaces.length; i++){
-                fillerLetters = fillerLetters.replace(input, "_");
-            }
-            // 5. grab div with id of words and change the innerHTML to be equal to fillerLetters join together hint: joint()
-            document.getElementById("words").innerHTML = fillerLetters.join("");
-
-            // 6. grab div with id of wrong-letters  and change the innerHTML to be equal to wrongLetters
-            document.getElementById("wrong-letters").innerHTML = "Wrong Letters: " + wrongLetters;
-
-            // 7. grab div with id of available-Guesses  and change the innerHTML to be equal to availGuesses
-            document.getElementById("available-Guesses").innerHTML = "Available Guesses: " + availGuesses;
-
-            // 8. create a function call checkLetter that has a parameter named letter 
-            function checkLetter (letter){
-
-                // - create var realLetter that is a boolean that will be set to false if the letter is not in the individualLetters and true if it is (default false) = (true or false)
-                var realLetter = "";
-
-                // - loop over the amount define in blankSpaces
-                var i = 0; i < blankSpaces.length; i++
-
-                //   - if letter is one of the letters inside individualLetters[i] then
-                if (letter == individualLetters[i]){
-
-                //    - store true in realLetter
-                realLetter = true;
-
-                // - close loop
-                }
-                // - if realLetter is true then
-                if (realLetter = true){
-
-                //   - loop over the amount define in blankSpaces
-                    blankSpaces.length[i];
-                } 
-                //     - if letter is one of the letters inside individualLetters then
-                if (letter == individualLetters[i]){
-
-                //       - grab fillerLetters at index and assign it the vlue of letter hint: fillerLetters[i] = letter
-                fillerLetters[i] = letter;
-
-                //     - end condition
-                }
-                // - else
-                else{
-                //   - add letter into wrongLetters=[] hint: push()
-                wrongLetters.push(letter);
-                
-                //   - subsatract one from availGuesses
-                availGuesses - 1;
-                // - end condition
-            }
-                // end function
-        }
-            // 9.  listen to an onkeyup event then
-            document.onkeyup = function (event) {
-                availGuesses--
-
-                // 10.  store letter input inside a var call input
-                var input = event.key.toLocaleLowerCase();
-
-                // 11. call the  checkLetter function and pass in the input as an argument
-                checkLetter(input)
-
-                // 12. grab div with id of wrong-letters  and change the innerHTML to be equal to wrongLetters
-                document.getElementById("wrong-letters").innerHTML = "Wrong Letters: " + wrongLetters;
-
-                // 13. grab div with id of available-Guesses  and change the innerHTML to be equal to availGuesses
-                document.getElementById("available-Guesses").innerHTML = "Available Guesses: " + availGuesses;
-
-                // 14. grab div with id of words and change the innerHTML to be equal to fillerLetters join together hint: joint()
-                document.getElementById("words").innerHTML = fillerLetters.join("");
-                
-                // 15. end event listener
-                
-            }
-            // alert("End of game, so take your fingers off the keys! You have sucessfully gone through each of my words.");
-            // alert("Good Job! Your " + document.getElementById("score").innerHTML + ". You get an extra point just for playing! Refresh the page to start again!")
-    </script>
+        </div>
+<script src="javascript/game.js"></script>
 </body>
+</html>
