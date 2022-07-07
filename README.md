@@ -1,1 +1,1 @@
-# Word-guessing-game
+# The question game
