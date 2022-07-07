@@ -1,16 +1,12 @@
-html{
-    background-image: url("https://www.universetoday.com/wp-content/uploads/2009/05/whirlpoolgalaxy.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: 100% 100%;
-}
-
-
 body{
     text-align: center;
     color: oldlace;
     vertical-align: middle;
     padding-top: 5%;
+    background-image: url("https://wallpaper.dog/large/11047829.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
 }
 
 p{
