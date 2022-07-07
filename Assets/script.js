@@ -1,8 +1,8 @@
-var words = ["Lamborghini", "Disney", "Iphone", "Missippi", "Ruby", "Pink",
-"Orlando", "Digital", "Train", "Quinceanera", "Washington", "Christmas",
-"Teammate", "Lie", "Sabado", "Marcales", "Yahoo", "Watermelon",
-"Javascript", "Ticket", "Egg", "Internet", "Browser", "Walmart", "Generation",
-"Patrick", "Galaxy", "Z", "Cat", "Kitten", "Ice", "Bracelet", "Incentive", "Highschool", "Windows", "Juno"];
+var words = ["lamborghini", "disney", "iphone", "missippi", "ruby", "pink",
+"orlando", "digital", "train", "quinceanera", "washington", "christmas",
+"teammate", "lie", "sabado", "marcales", "yahoo", "watermelon",
+"javascript", "ticket", "egg", "internet", "browser", "walmart", "generation",
+"patrick", "galaxy", "z", "cat", "kitten", "ice", "bracelet", "incentive", "highschool", "windows", "juno"];
 
 var wins = 0, losses = 0, numGuesses = 17, count = 0;
 var wordIndex = 0;
