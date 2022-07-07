@@ -75,7 +75,7 @@ function resetGame(){
     }
     for(var i = 1; i <= 10; i++){
         var temp = "star" + i;
-        document.getElementById(temp).style.visibility = "visible";
+        
     }
     starNum = 1;
 }
