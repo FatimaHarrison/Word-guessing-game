@@ -1,5 +1,5 @@
 html{
-    background-image: src="https://wallpaperaccess.com/full/487687.jpg";
+    background-image: url("https://www.universetoday.com/wp-content/uploads/2009/05/whirlpoolgalaxy.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 100% 100%;
@@ -20,6 +20,7 @@ p{
 
 h1{
     font-style:italic;
+}
     
     
     
