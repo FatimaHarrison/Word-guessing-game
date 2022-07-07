@@ -23,7 +23,7 @@ document.onkeyup = function (event) {
             for(var i = 0; i < duplicate.length; i++){
                 displayWord[placeholder.indexOf(input)] = input;
                 placeholder = placeholder.replace(input, " ");
-            }
+           }
         }
         else{
             if(document.getElementById("wrongLetters").innerHTML.includes(input.toLowerCase(),14)){
@@ -44,30 +44,19 @@ document.onkeyup = function (event) {
 }
 
 function updateGame(){
-       (document.getElementById("word").innerHTML.includes("_")));
-       if(numGuesses > 0){
+    if(!(document.getElementById("word").innerHTML.includes("_"))){
+        if(numGuesses > 0){
             wins++;
-            alert("Congratulation you've won!")
-            resetGame();
         }
-           document.getElementById("word").innerHTML = displayMysteryWord();
-        if(numGuesses <=0){
+        else{
             losses++;
-            alert("Game over!")
-            resetGame();
         }
     }
-      document.getElementById("word").innerHTML = displayMysteryWord();
-      document.getElementById("Wins").innerHTML = "Wins: " + wins;
-      document.getElementById("Losses").innerHTML = "Losses: " + losses;
-      document.getElementById("guessesLeft").innerHTML = "Guesses Left: " + numGuesses;
-  }
-
+}
 
 function resetGame(){
-    numGuesses = 17;
-    wrongGuesses = [], displayWord=[];
-    document.getElementById("wrongLetters").innerHTML = "Wrong letters: " + wrongGuesses;
+    numGuesses = 20;
+    wrongGuesses = [];
     wordIndex = Math.floor(Math.random()*words.length);
     for(var i = 0; i < words[wordIndex].length; i++){
         displayWord.push(" _ ");
