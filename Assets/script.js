@@ -4,7 +4,7 @@ var words = ["lamborghini", "disney", "iphone", "missippi", "ruby", "pink",
 "javascript", "ticket", "egg", "internet", "browser", "walmart", "generation",
 "patrick", "galaxy", "z", "cat", "kitten", "ice", "bracelet", "incentive", "highschool", "windows", "juno"];
 
-var wins = 0, losses = 0, numGuesses = 17, count = 0;
+var wins = 0, losses = 0, numGuesses = 26, count = 0;
 var wordIndex = 0;
 var displayWord = [], wrongGuesses = [];
 var duplicate;
@@ -35,7 +35,7 @@ document.onkeyup = function (event) {
                 document.getElementById("wrongLetters").innerHTML = "Wrong letters: " + wrongGuesses;
                 var temp = "star" + starNum;
                 starNum++;
-                alert("This key is already use please choose another.")
+                
             }
         }
     }
@@ -65,7 +65,7 @@ function updateGame(){
 }
 
 function resetGame(){
-    numGuesses = 10;
+    numGuesses = 26;
     wrongGuesses = [], displayWord = [];
     document.getElementById("wrongLetters").innerHTML = "Wrong letters: " + wrongGuesses;
     wordIndex = Math.floor(Math.random()*words.length);
