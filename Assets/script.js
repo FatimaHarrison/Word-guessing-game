@@ -1,10 +1,11 @@
 
-var words = ["peterpan", "disney", "iphone", "missippi", "ruby", "pink",
+var words = ["eterpan", "disney", "iphone", "missippi", "ruby", "pink",
 "orlando", "digital", "train", "quinceanera", "washington", "christmas",
 "teammate", "lie", "sabado", "marcales", "yahoo", "watermelon",
 "javascript", "ticket", "egg", "internet", "browser", "walmart", "generation",
 "patrick", "galaxy", "cat", "kitten", "ice", "bracelet", "incentive", "highschool", "windows", "juno"];
-document.getElementById("word").innerHTML = displayMysteryWord();
+
+
 var wins = 0, losses = 0, numGuesses = 26, count = 0;
 var wordIndex = 0;
 var displayWord = [], wrongGuesses = [];
@@ -86,3 +87,6 @@ function displayMysteryWord(){
     }
     return output;
 }
+
+
+        
